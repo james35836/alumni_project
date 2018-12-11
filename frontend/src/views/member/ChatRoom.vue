@@ -56,7 +56,7 @@ export default {
     }),
     methods: {
         send_message() {
-            // this.scrollToEnd();
+            this.scrollToEnd();
             this.send.group_id = 1;
             this.send.user_id = 1;
             axios.post('/api/send_message', this.send).then(res => {
@@ -69,6 +69,7 @@ export default {
                     this.error_message = err.response.data.message;
                     this.loading = false;
                 });
+                this.scrollToEnd();
         },
         scrollToEnd() {
             var container = document.getElementById("scrolled-content")
