@@ -15,40 +15,40 @@
                                 <v-container>
                                     <v-layout row wrap>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.first_name" :rules="first_name" label="First Name" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.first_name" :rules="[v => !!v || 'First Name is required']" label="First Name" color="accent"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.middle_name" :rules="middle_name" label="Middle Name" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.middle_name" :rules="[v => !!v || 'Middle Name is required']" label="Middle Name" color="accent"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.last_name" :rules="last_name" label="Last Name" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.last_name" :rules="[v => !!v || 'Last Name is required']" label="Last Name" color="accent"></v-text-field>
                                         </v-flex>
                                     </v-layout>
                                     <v-layout row wrap>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.contact" :rules="contact" label="Phone Number" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.contact" :rules="[v => !!v || 'Phone Number is required']" label="Phone Number" color="accent"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
                                             <g-datepicker-component></g-datepicker-component>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
-                                            <v-select v-model="req_data.gender" :items="gender" :rules="gender_rule" label="Gender"></v-select>
+                                            <v-select v-model="req_data.gender" :items="gender" :rules="[v => !!v || 'Gender is required']" label="Gender"></v-select>
                                         </v-flex>
                                     </v-layout>
                                     <v-layout row wrap>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.email" label="Email" :rules="email" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.email" label="Email" :rules="[v => !!v || 'Email is required']" color="accent"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.password" label="Password" :rules="password" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.password" label="Password" :type="'password'" :rules="[v => !!v || 'Password is required']" hint="At least 8 characters" color="accent"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
-                                            <v-text-field v-model="req_data.password_confirmation" :rules="password_confirmation" label="Password" color="accent"></v-text-field>
+                                            <v-text-field v-model="req_data.password_confirmation" :type="'password'" :rules="[v => !!v || 'Confirm Password is required']" hint="At least 8 characters" label="Confirm Password" color="accent"></v-text-field>
                                         </v-flex>
                                     </v-layout>
                                     <v-layout row wrap>
                                         <v-flex xs12 sm6 md4>
-                                            <v-select v-model="req_data.group_id" :items="group_data" :rules="group_id" item-text="name" item-value="id" label="Batch" single-line>
+                                            <v-select v-model="req_data.group_id" :items="group_data" :rules="[v => !!v || 'Batch Year is required']"  item-text="name" item-value="id" label="Batch" single-line>
                                             </v-select>
                                         </v-flex>
                                     </v-layout>
@@ -88,15 +88,7 @@ export default {
         birthdate: "04/11/1994",
         loading: false,
         group_data: [],
-        first_name: [v => !!v || 'First Name is required'],
-        middle_name: [v => !!v || 'Middle Name is required'],
-        last_name: [v => !!v || 'Last Name is required'],
-        contact: [v => !!v || 'Phone is required'],
-        gender_rule: [v => !!v || 'Gender is required'],
-        email: [v => !!v || 'E-mail is required', v => /.+@.+/.test(v) || 'E-mail must be valid'],
-        password: [v => !!v || 'Password is required'],
-        password_confirmation: [v => !!v || 'Password Confirmation is required'],
-        group_id: [v => !!v || 'Batch  is required'],
+        
     }),
     watch: {
         req_data: function(newValue) {
