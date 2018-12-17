@@ -19,13 +19,13 @@
                 </v-list-tile>
             </v-list>
         </v-navigation-drawer>
-        <div style="height: 33px;" class="hidden-sm-and-down d-inline row" color="blue lighten-5" width="100">
+        <div style="height: 33px;" class="d-inline row" color="blue lighten-5" width="100">
             <v-layout row wrap>
-            <v-flex class="text-xs-left d-inline mt-1" xs6 sm6 md6>
-                <div class="font-weight-medium"><v-icon>phone</v-icon> 09367932821 <v-icon>email</v-icon> jamesomosora@gmail.com</div>
+            <v-flex class="text-xs-left d-inline mt-1 " xs12 sm6 md6>
+                <div class="font-weight-medium hidden-sm-and-down"><v-icon>phone</v-icon> 09367932821 <v-icon>email</v-icon> jamesomosora@gmail.com</div>
                
             </v-flex>
-            <v-flex class="text-xs-right d-inline" xs6 sm6 md6>
+            <v-flex class="text-xs-right d-inline" xs12 sm6 md6>
                 Follow Us 
                 <v-btn style="height: 25px;width: 25px; ]" v-for="social in socials" :color="social.color" class="white--text text-xs-right" fab icon small>
                     <v-icon style="font-size: 12px;">{{ social.icon }}</v-icon>
